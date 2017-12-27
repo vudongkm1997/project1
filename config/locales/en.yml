@@ -33,6 +33,7 @@ en:
   name_project: "Project1"
   signup: "Sign up"
   success: "Welcome to the My Shop!"
+  success_signup: "Please log in with your new account"
   error_message: "error"
   nouser: "User doesn't exist"
   confirm: "Confirmation"
