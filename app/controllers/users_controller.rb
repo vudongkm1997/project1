@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def update
+
     if @user.update_attributes user_params
       flash[:success] = t "success_update"
       redirect_to @user
