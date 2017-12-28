@@ -44,21 +44,55 @@ input {
   margin: 0;
 }
 
-body{
+body,
+html{
   background-color: $gray;
-  min-height: 100%;
+  height: 100%;
+  #main{
+    min-height: 100%;
+  }
+}
+
+.title{
+  background: $blue;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: $white;
+  margin-top: 10px;
+  padding: 2px 0px;
+  h3{
+    padding-left: 8px;
+  }
+}
+
+.news{
+  border-top: 2px solid $blue;
+  margin-bottom: 13px;
+  padding-top:2px;
+}
+
+.user-info{
+  margin-bottom: 10px;
 }
 
 .navbar-default{
-  background-color: #337ab7;
+  background-color: $blue;
 }
 
 .navbar-default{
   .navbar-brand,
   .navbar-nav>li>a,
   .navbar-brand:hover,
-  .navbar-nav>li>a:hover{
+  .navbar-nav>li>a:hover,
+  .navbar-nav>li>a:focus,
+  .navbar-nav .open a,
+  .navbar-nav .open a:focus,
+  .navbar-nav > li > .dropdown-menu{
     color: $white;
+    background-color: $blue;
+  }
+  .navbar-brand{
+    font-size: 30px;
   }
 }
 
@@ -93,6 +127,30 @@ a.list-group-item:hover{
   padding: 10px;
 }
 
+#product_list{
+  background-color: $white;
+  margin-bottom: 10px;
+  .col-xs-3{
+    border: 1px solid $white;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+  .col-xs-3:hover{
+    border: 1px solid $blue;
+    border-radius: 5px;
+  }
+  #price{
+    color: $red;
+  }
+  .product_name h4{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
 #error_explanation {
   color: $red;
   ul {
@@ -109,11 +167,10 @@ a.list-group-item:hover{
 }
 
 footer{
-  background-color: $gray;
-  bottom: 0;
-  left: 0;
-  padding: 10px 0;
-  position: absolute;
+  background-color: $blue;
+  color: $white;
+  margin-top: 10px;
+  padding: 7px 0;
   right: 0;
 }
 

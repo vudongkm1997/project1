@@ -2,9 +2,36 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
+      <div class="col-xs-12 nopadding">
+        <h1><%= @user.name %></h1>
+      </div>
+      <div class="col-xs-12 nopadding">
+        <div class="input-group user-info">
+          <span class="input-group-addon">
+            <%= t ".user_id" %>
+          </span>
+          <span class="form-control"><%= @user.id %></span>
+        </div>
+        <div class="input-group user-info">
+          <span class="input-group-addon">
+            <%= t ".email" %>
+          </span>
+          <span class="form-control"><%= @user.email %></span>
+        </div>
+        <div class="input-group user-info">
+          <span class="input-group-addon">
+            <%= t ".phone" %>
+          </span>
+          <span class="form-control"><%= @user.phone %></span>
+        </div>
+        <div class="input-group user-info">
+          <span class="input-group-addon">
+            <%= t ".address" %>
+          </span>
+          <span class="form-control"><%= @user.address %></span>
+        </div>
+      </div>
+      <%= link_to t(".update-profile"), edit_user_path(current_user), class: "btn btn-primary" %>
     </section>
   </aside>
 </div>
