@@ -30,26 +30,48 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+
+  layouts:
+    header:
+      acc: "Account"
+      home: "Home"
+      name_project: "Project1"
+      login: "Log in"
+      logout: "Log out"
+      profile: "Profile"
+      users: "Users"
+      signup: "Sign up"
+      seach: "Search"
+
+  login_sessions:
+    new:
+      new_user: "New user?"
+      login: "Log in"
+      signup_now: "Sign up now!"
+      remember_acc: "Remember me on this computer"
+
+  shared:
+    error_messages:
+      error_messages: "error"
+
+  static_pages:
+    home:
+      add_cart: "Add to cart"
+      home: "Home"
+      review: "Review"
+
+  users:
+    new:
+      confirm: "Confirmation"
+      create_acc: "Create my account"
+      signup: "Sign up"
+
+  contain_err: "The form contains"
+  invalid: "Invalid email/password combination"
+  mobile: "Mobile phone"
   name_project: "Project1"
-  signup: "Sign up"
+  nouser: "User doesn't exist"
+  profile: "Profile"
+  success_login: "Login success!"
   success: "Welcome to the My Shop!"
   success_signup: "Please log in with your new account"
-  error_message: "error"
-  nouser: "User doesn't exist"
-  confirm: "Confirmation"
-  create_acc: "Create my account"
-  contain_err: "The form contains "
-  acc: "Account"
-  setting: "Settings"
-  users: "Users"
-  home: "Home"
-  help: "Help"
-  login: "Log in"
-  logout: "Log out"
-  profile: "Profile"
-  invalid: "Invalid email/password combination"
-  remember_acc: "Remember me on this computer"
-  seach: "Search"
-  review: "Review"
-  add_cart: "Add to cart"
-  mobile: "Mobile phone"
