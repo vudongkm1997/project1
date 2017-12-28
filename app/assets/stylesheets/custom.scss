@@ -1,0 +1,102 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+$blue: #337ab7;
+$gray: #f8f8f8;
+$white: #fff;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1{
+  text-align: center;
+}
+/* forms */
+
+input,
+textarea,
+select,
+.uneditable-input {
+  border: 1px solid #bbb;
+  margin-bottom: 15px;
+  width: 100%;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.nopadding{
+  padding: 0;
+}
+
+.nomargin{
+  margin: 0;
+}
+
+body{
+  background-color: $gray;
+  min-height: 100%;
+}
+
+.navbar-default{
+  background-color: #337ab7;
+}
+
+.navbar-default{
+  .navbar-brand,
+  .navbar-nav>li>a,
+  .navbar-brand:hover,
+  .navbar-nav>li>a:hover{
+    color: $white;
+  }
+}
+
+#header_search{
+  margin: 8px 0;
+}
+
+#bill {
+  border-top: 1px solid
+}
+
+#add_to_cart{
+  position: sticky;
+  top: 0;
+}
+
+.list-group{
+  position: sticky;
+  top: 0;
+}
+
+a.list-group-item:hover{
+  background-color: $blue;
+  color: $white;
+}
+
+#title_manager{
+  background-color: $blue;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  color: $white;
+  padding: 10px;
+}
+
+footer{
+  background-color: $gray;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  position: absolute;
+  right: 0;
+}
