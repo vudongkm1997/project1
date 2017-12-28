@@ -7,8 +7,9 @@ end
 
 gem "bootstrap-sass", "3.3.7"
 gem "bcrypt"
-gem "coffee-rails", "~> 4.2"
 gem "carrierwave", "1.1.0"
+gem "coffee-rails", "~> 4.2"
+gem "config"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "faker", "1.7.3"
