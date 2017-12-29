@@ -1,0 +1,4 @@
+name_size: 50
+email_size: 255
+pass_size: 6
+address_size: 6
