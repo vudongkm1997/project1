@@ -1,0 +1,17 @@
+<% provide :title, t(".all-products") %>
+<h1><%= t(".all-products") %></h1>
+
+<ul class="products">
+  <% @products.each do |product| %>
+    <li>
+      <%= image_tag product.image %>
+      <%= product.name %>
+      <%= product.description %>
+      <%= product.quantity %>
+      <%= product.price %>
+      <%= product.status %>
+      <%= product.category_id %>
+    </li>
+  <% end %>
+  <%= paginate @products, theme: 'twitter-bootstrap-3' %>
+</ul>

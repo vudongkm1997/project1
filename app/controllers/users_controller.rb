@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     return if @user
-    flash[:danger] = t "nouser"
+    flash[:danger] = t "no_user"
     redirect_to signup_path
   end
 
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def logged_in_user
-    return if logg_in?
+    return if logged_in?
     flash[:danger] = t "please_login"
     redirect_to login_path
   end

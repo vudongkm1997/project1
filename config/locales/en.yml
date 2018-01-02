@@ -42,6 +42,7 @@ en:
       signup: "Sign up"
       search: "Search"
       cart: "Your cart"
+      product_h: "Products"
     footer:
       makeby: "Make by Framgia Edu"
       thankyou: "Thank you for shopping here"
@@ -66,6 +67,12 @@ en:
       product_price: "$ %{price}"
       add_cart: "Add to cart"
 
+  products:
+    index:
+      all-products: "All products"
+    show:
+      add_cart: "Add to cart"
+
   users:
     new:
       confirm: "Confirmation"
@@ -83,10 +90,7 @@ en:
       update-user: "Update your profile"
       confirm: "Confirmation"
       save: "Save changes"
-
-  products:
-    show:
-      add_cart: "Add to cart"
+      update: "Update profile"
 
   carts:
     show:
@@ -109,7 +113,7 @@ en:
   create_acc: "Create my account"
   invalid: "Invalid email/password combination"
   mobile: "Mobile phone"
-  success_update: "Updated profile success!"
-  please_login.: "Please log in"
-  no-user: "User doesn't exist!"
   success_pay: "Thank you for buying"
+  success_update: "Update success!"
+  no_product: "Product doesn't exist!"
+  no_user: "User doesn't exist!"
