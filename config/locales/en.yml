@@ -57,6 +57,10 @@ en:
   shared:
     error_messages:
       error_messages: "error"
+      contain_err: "The form contains"
+    error_product_messages:
+      error_messages: "error"
+      contain_err: "The form contains"
 
   static_pages:
     home:
@@ -72,6 +76,9 @@ en:
       all-products: "All products"
     show:
       add_cart: "Add to cart"
+    edit:
+      save: "Save changes"
+      update-product: "Update product"
 
   users:
     new:
@@ -104,7 +111,6 @@ en:
       you_sure: "You sure ?"
 
   name_project: "14ALL MOBILE"
-  contain_err: "The form contains"
   invalid: "Invalid email/password combination"
   mobile: "Mobile phone"
   success: "Welcome to the My Shop!"
@@ -117,3 +123,11 @@ en:
   success_update: "Update success!"
   no_product: "Product doesn't exist!"
   no_user: "User doesn't exist!"
+  success_update: "Updated success!"
+  no-product: "Product doesn't exist"
+  please-login: "Please log in"
+  delete-product: "Delete product"
+  success_delete: "Delete success"
+  success_c: "Success!"
+  add-product: "Add Product"
+  noti: "should be less than 5MB"
