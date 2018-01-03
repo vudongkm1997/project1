@@ -116,3 +116,16 @@ footer{
   position: absolute;
   right: 0;
 }
+
+.checkbox {
+  margin: -10px 0px 10px 0px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  margin-left: 0;
+  width: auto;
+}
