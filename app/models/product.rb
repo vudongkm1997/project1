@@ -8,7 +8,6 @@ class Product < ApplicationRecord
   scope :load_info, -> {select :image, :id, :price, :name}
   scope :search, ->q{where "name LIKE '%#{q}%'"}
   scope :order_by_name, ->{order name: :asc}
-  scope :info, -> {select(:image, :id, :price, :name)}
 
   mount_uploader :image, ImageUploader
   validate :image_size
