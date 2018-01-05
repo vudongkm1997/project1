@@ -45,6 +45,9 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -242,6 +245,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  bootstrap-kaminari-views
   bootstrap-sass (= 3.3.7)
   byebug
   capybara (~> 2.13)
@@ -268,4 +272,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
