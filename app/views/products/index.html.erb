@@ -1,6 +1,7 @@
 <% provide :title, t(".all-products") %>
 <h1><%= t(".all-products") %></h1>
 
+<%= link_to t(".add-product"), new_product_path %>
 <ul class="products">
   <% @products.each do |product| %>
     <li>
@@ -11,8 +12,8 @@
       <%= product.price %>
       <%= product.status %>
       <%= product.category_id %>
-      <%= link_to t("update-product"), edit_product_path(product.id) %>
-      <%= link_to t("delete-product"), product, method: :delete, data:
+      <%= link_to t(".update-product"), edit_product_path(product.id) %>
+      <%= link_to t(".delete-product"), product, method: :delete, data:
         { confirm: "You sure?" }  %>
     </li>
   <% end %>

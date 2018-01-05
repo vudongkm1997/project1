@@ -79,6 +79,9 @@ en:
     edit:
       save: "Save changes"
       update-product: "Update product"
+    new:
+      add-product: "Add product"
+      add: "Add"
 
   users:
     new:

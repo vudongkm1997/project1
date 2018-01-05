@@ -13,10 +13,13 @@ class ProductsController < ApplicationController
     @products = Product.all.page(params[:page]).per 10
   end
 
+  def new
+    @product = Product.new
+  end
+
   def create
     @product = Product.new product_params
     if @product.save
-      log_in @product
       flash[:success] = t "success_c"
       redirect_to products_url
     else
@@ -49,7 +52,7 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit :name, :description, :image, :quantity,
-    :price, :status
+    :price, :status, :category_id
   end
 
   def logged_in_user
