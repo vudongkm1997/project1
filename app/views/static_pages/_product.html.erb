@@ -13,7 +13,8 @@
         </div>
       </div>
       <div class="product_add col-md-12">
-        <%= link_to t(".add_cart"), product_path(id: p.id) , method: "create") %>
+        <%= link_to t(".add_cart"), product_path(id: p.id),
+         class: "btn btn-primary" %>
       </div>
     </div>
   </div>
