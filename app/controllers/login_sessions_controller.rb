@@ -11,7 +11,11 @@ class LoginSessionsController < ApplicationController
       log_in user
       cart_new
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
-      redirect_to root_url
+      if current_user.admin
+        redirect_to products_path
+      else
+        redirect_to root_url
+      end
     else
       flash[:danger] = t "invalid"
       render :new

@@ -10,3 +10,11 @@
   Product.create!(name: name, description: "string", image: "string",
     quantity: 2, category_id: 1, price: 100, status: true)
 end
+
+User.create!(name:  "manh",
+             email: "manh@gmail.com",
+             phone: "1111111111"
+             address: "1111111111"
+             password:              "111111",
+             password_confirmation: "111111",
+             admin: true)

@@ -55,4 +55,5 @@ class UsersController < ApplicationController
     flash[:danger] = t "no-user"
     redirect_to root_path
   end
+
 end
