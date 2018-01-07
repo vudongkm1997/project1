@@ -1,0 +1,15 @@
+<tr>
+  <td><%= c.id %></td>
+  <td><%= c.email %></td>
+  <td><%= c.name %></td>
+  <td><%= c.phone %></td>
+  <td><%= c.address %></td>
+  <td>
+    <% if current_user.admin? && !current_user?(c) %>
+      <%= link_to c, method: :delete, data:{confirm: t(".sure")},
+        class: "btn btn-danger" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

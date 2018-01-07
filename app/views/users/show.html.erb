@@ -1,37 +1,54 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <aside class="col-md-6">
+<div class="col-xs-12">
+  <aside class="col-md-12 center-info">
     <section class="user_info">
       <div class="col-xs-12 nopadding">
-        <h1><%= @user.name %></h1>
+        <h2 class="col-xs-6"><%= @user.name %></h2>
       </div>
       <div class="col-xs-12 nopadding">
-        <div class="input-group user-info">
-          <span class="input-group-addon">
-            <%= t ".user_id" %>
-          </span>
-          <span class="form-control"><%= @user.id %></span>
+        <div class="col-xs-6">
+          <div class="input-group user-info">
+            <span class="input-group-addon">
+              <%= t ".user_id" %>
+            </span>
+            <span class="form-control"><%= @user.id %></span>
+          </div>
         </div>
-        <div class="input-group user-info">
-          <span class="input-group-addon">
-            <%= t ".email" %>
-          </span>
-          <span class="form-control"><%= @user.email %></span>
+        <div class="col-xs-6">
+          <div class="input-group user-info">
+            <span class="input-group-addon">
+              <%= t ".email" %>
+            </span>
+            <span class="form-control"><%= @user.email %></span>
+          </div>
         </div>
-        <div class="input-group user-info">
-          <span class="input-group-addon">
-            <%= t ".phone" %>
-          </span>
-          <span class="form-control"><%= @user.phone %></span>
+        <div class="col-xs-6">
+          <div class="input-group user-info">
+            <span class="input-group-addon">
+              <%= t ".phone" %>
+            </span>
+            <span class="form-control"><%= @user.phone %></span>
+          </div>
         </div>
-        <div class="input-group user-info">
-          <span class="input-group-addon">
-            <%= t ".address" %>
-          </span>
-          <span class="form-control"><%= @user.address %></span>
+        <div class="col-xs-6">
+          <div class="input-group user-info">
+            <span class="input-group-addon">
+              <%= t ".address" %>
+            </span>
+            <span class="form-control"><%= @user.address %></span>
+          </div>
         </div>
       </div>
-      <%= link_to t(".update-profile"), edit_user_path(current_user), class: "btn btn-primary" %>
+      <div class="col-xs-6">
+        <% if current_user.id == @user.id %>
+          <%= link_to t(".update-profile"), edit_user_path(current_user),
+            class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <hr class="col-xs-12 nopadding">
+      <div class="col-xs-">
+
+      </div>
     </section>
   </aside>
 </div>

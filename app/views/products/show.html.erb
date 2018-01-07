@@ -1,20 +1,23 @@
 <% provide :title, @product.name %>
-<div class='row'>
-  <aside class='col-md-12 nopadding'>
-    <section class='user_info'>
+<div class="row nomargin">
+  <aside class="col-md-12">
+    <section class="center-info col-xs-12 nopadding">
       <div class="col-md-3">
          <%= image_tag @product.image, class: "img-responsive"%>
       </div>
       <div class="col-md-8">
         <div>
-          <h1><%= @product.name %></h1>
+          <h2><%= @product.name %></h2>
           <br>
           Description: <%= @product.description %>
           <br>
           Quantity: <%= @product.quantity %>
+          <input type="hidden" id="default_quantity"
+            value="<%= @product.quantity %>" readonly>
         </div>
         <% if logged_in? %>
           <%= form_for @cart do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
             <%= f.hidden_field :cart_id, value: session[:cart],
               class: "form-control" %>
             <%= f.hidden_field :product_id, value: @product.id,
@@ -24,7 +27,7 @@
                 <span class="input-group-btn">
                    <span id="down" class="btn btn-primary">-</span>
                 </span>
-                <%= f.text_field :quantity, value: 1, class: "form-control",
+                <%= f.text_field :quantity, value: 0, class: "form-control",
                   id: "quantity", readonly: true %>
                 <span class="input-group-btn">
                   <span id="up" class="btn btn-primary">+</span>
@@ -36,7 +39,7 @@
             <div class="col-md-4">
               <div class="input-group">
                 <span class="input-group-addon">Price</span>
-                <%= f.text_field :total_price, value: @product.price,
+                <%= f.text_field :total_price, value: 0,
                   class: "form-control total_price", readonly: true %>
                 <span class="input-group-addon">$</span>
               </div>
@@ -46,6 +49,30 @@
             </div>
           <% end %>
         <% end %>
+      </div>
+      <hr class="col-xs-12 nopadding">
+      <div class="col-xs-12 nopadding" id="review">
+        <h3>Comments</h3>
+        <% if logged_in? %>
+          <div class="col-xs-8">
+            <%= form_for @review do |f| %>
+              <%= render "shared/error_messages", object: f.object %>
+              <div class="col-xs-8">
+                <%= f.text_area :comment, class: "form-control" %>
+                <%= f.hidden_field :product_id, value: @product.id,
+                  readonly: true %>
+                <%= f.hidden_field :user_email, value: current_user.email,
+                  readonly: true %>
+              </div>
+              <div class="col-xs-3">
+                <%= f.submit "Comment", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+          <% end %>
+        <div class="col-xs-12">
+          <%= render partial: "comments", collection: @comments, as: :r %>
+        </div>
       </div>
     </section>
   </aside>

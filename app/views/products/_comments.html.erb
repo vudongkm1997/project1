@@ -1,0 +1,10 @@
+<div class="col-xs-8 review_list">
+  <div class="col-xs-8">
+    <span class="comment">
+      <%= r.comment %>
+    </span>
+  </div>
+  <div class="col-xs-4">
+    By: <%= link_to r.user_email, user_path(id: r.user_id) %>
+  </div>
+</div>

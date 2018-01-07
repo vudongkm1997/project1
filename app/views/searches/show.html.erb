@@ -1,0 +1,16 @@
+<% provide :title, t(".search_result") %>
+<main>
+  <div class="container">
+    <div class="col-xs-12 nopadding" id="product_list_item">
+      <div class="title">
+        <h3><%= t ".search_result", count: @products.count %></h3>
+      </div>
+      <div id="product" class="col-xs-12 nopadding">
+        <div id="product_list" class="col-xs-12 nopadding">
+          <%= render partial: "static_pages/product", collection: @products, as: :p %>
+        </div>
+        <%= paginate @products, theme: "twitter-bootstrap-3" %>
+      </div>
+    </div>
+  </div>
+</main>

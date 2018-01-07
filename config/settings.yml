@@ -1,6 +1,7 @@
 name_size: 50
-description_size: 255
+description_size: 10
 email_size: 255
 pass_size: 6
 address_size: 6
-product_per_page: 12
+per_page: 12
+product_per_page: 6

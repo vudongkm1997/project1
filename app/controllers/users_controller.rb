@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :load_user, only: [:show, :edit, :update]
+  before_action :admin_user, only: [:index, :destroy]
+
+  def index
+    @users = User.all.page(params[:page]).per Settings.per_page
+      respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv }
+      format.xls
+    end
+  end
 
   def new
     @user = User.new
@@ -33,6 +43,16 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find_by id: params[:id]
+
+    if @user
+      @user.destroy
+      flash[:success] = t "success_delete"
+      redirect_to products_url
     end
   end
 

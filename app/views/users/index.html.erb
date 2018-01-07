@@ -1,0 +1,45 @@
+<% provide :title, t(".all-users") %>
+<%= render "admin/admin_menu" %>
+<div class="col-md-8 " id="manager">
+  <div class="col-xs-12" id="title_manager">
+    <div class="col-xs-3">
+      <h4><%= t(".all-users") %></h4>
+    </div>
+    <div class="col-xs-6">
+      <%= form_tag users_url, method: :get do %>
+        <div class="input-group">
+          <span class="input-group-addon">
+            Search
+          </span>
+          <%= text_field_tag :name, params["name"],id: "search_user",
+            class: "form-control", placeholder: t(".enter_email") %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-2 pull-right">
+      <%= link_to "Export", users_path(format: "xls"), class: "btn btn-success"%>
+    </div>
+  </div>
+
+  <div class="col-xs-12 nopadding center-info">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t ".id" %></th>
+          <th><%= t ".user_eamil" %></th>
+          <th><%= t ".user_name" %></th>
+          <th><%= t ".user_phone" %></th>
+          <th><%= t ".user_address" %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "users_list", collection: @users, as: :c %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-12 nopadding">
+    <%= paginate @users, theme: 'twitter-bootstrap-3' %>
+  </div>
+</div>
+

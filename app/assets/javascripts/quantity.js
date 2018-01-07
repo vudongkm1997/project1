@@ -5,14 +5,18 @@ jQuery(document).ready(function($) {
   function total_price_up()
   {
     quantity++;
+    if(quantity >= $('#default_quantity').val())
+    {
+      quantity= $('#default_quantity').val()
+    }
     price();
   }
   function total_price_down()
   {
     quantity--;
-    if(quantity<=0)
+    if(quantity <= 0)
     {
-      quantity=0;
+      quantity = 0;
     }
     price();
   }

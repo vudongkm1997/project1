@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :cart_items
   has_many :reviews
 
-  scope :load_info, -> {select :image, :id, :price, :name}
+  scope :load_info, -> {select :image, :id, :price, :name, :quantity}
   scope :search, ->q{where "name LIKE '%#{q}%'"}
   scope :order_by_name, ->{order name: :asc}
 
@@ -20,7 +20,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: Settings.name_size}
   validates :description, presence: true,
-    length: {maximum: Settings.description_size}
+    length: {minimum: Settings.description_size}
   validates :quantity, presence: true, numericality: { only_integer: true,
    greater_than_or_equal_to: 0}
   validates :price, presence: true, numericality: { only_float: true,

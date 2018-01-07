@@ -6,6 +6,9 @@
       <div class="title">
         <h3><%= t ".mobile" %></h3>
       </div>
+      <div class="">
+        <h4><%= t ".total", products: @products.count%></h4>
+      </div>
       <div id="product" class="col-xs-12 nopadding">
         <div id="product_list" class="col-xs-12 nopadding">
           <%= render partial: "product", collection: @products, as: :p %>

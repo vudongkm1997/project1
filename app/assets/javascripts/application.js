@@ -15,6 +15,8 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require quantity
+//= require search
+//= require search_users
 //= require bootstrap
 //= require rails-ujs
 //= require_tree .

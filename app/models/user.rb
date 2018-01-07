@@ -20,6 +20,14 @@ class User < ApplicationRecord
       BCrypt::Password.create string, cost: cost
     end
 
+    def search name
+      if name
+        where "email LIKE ?", "%#{name}%"
+      else
+        select :id, :name, :phone, :email, :address
+      end
+    end
+
     def new_token
       SecureRandom.urlsafe_base64
     end
@@ -37,5 +45,14 @@ class User < ApplicationRecord
 
   def forget
     update_attributes remember_digest: nil
+  end
+
+  def to_csv options = {}
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |user|
+        csv << user.attributes.values_at(*column_names)
+      end
+    end
   end
 end

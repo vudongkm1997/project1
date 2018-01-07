@@ -109,7 +109,7 @@ html{
   top: 0;
 }
 
-.list-group{
+#menu_manager{
   position: sticky;
   top: 0;
 }
@@ -182,9 +182,62 @@ a.list-group-item:hover{
     text-decoration: none
   }
 }
+
 .center-info{
   background-color: $white;
   padding: 10px 0;
+  .product-list-item{
+    margin: 10px 0;
+  }
+}
+
+.ui-autocomplete.ui-front{
+  display: block;
+  position: absolute;
+  width: 200px;
+  margin: 0;
+  li{
+    background-color: $white;
+    color: $blue;
+    list-style: none;
+    padding: 10px;
+  }
+  li:hover{
+    background-color: $blue;
+    color: $white;
+  }
+}
+
+.ui-helper-hidden-accessible{
+  display: none;
+}
+
+#review{
+  h3{
+    padding-left: 30px;
+  }
+  #review_comment{
+    resize: vertical;
+  }
+  .review_list{
+    margin-top: 10px;
+    .col-xs-8{
+      background-color: $blue;
+      border-radius: 5px;
+      padding: 10px;
+      color: $white;
+    }
+    .comment{
+      word-wrap: break-word;
+    }
+    .user_name{
+      color: $blue;
+    }
+  }
+  #review_comment{
+    overflow: hidden;
+    height: 100px;
+  }
 }
 
 footer{

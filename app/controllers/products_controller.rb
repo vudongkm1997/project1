@@ -1,9 +1,12 @@
 class ProductsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
-  before_action :admin_user, only: [:index]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index, :edit, :update, :destroy]
 
   def show
     @product = Product.find_by id: params[:id]
+    @comments = Review.load_comment.where(product_id: params[:id])
+      .order(created_at: :desc).page(params[:page]).per Settings.per_page
+    @review = current_user.reviews.build if logged_in?
     @cart = Cart.new
     return if @product
     flash[:danger] = t "no_product"
@@ -11,7 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.page(params[:page]).per 10
+    @products = Product.load_info.page(params[:page]).per Settings.product_per_page
   end
 
   def new
@@ -45,22 +48,19 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find_by id: params[:id]
-    @product.destroy
-    flash[:success] = t "success_delete"
-    redirect_to products_url
+
+    if @product
+      @product.destroy
+      flash[:success] = t "success_delete"
+      redirect_to products_url
+    end
   end
 
   private
+
   def product_params
     params.require(:product).permit :name, :description, :image, :quantity,
     :price, :status, :category_id
-  end
-
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = t "please-login."
-      redirect_to login_path
-    end
   end
 
 end
