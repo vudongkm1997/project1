@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
-  before_action :load_User, only: [:show, :edit, :update]
+  before_action :load_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def update
+
     if @user.update_attributes user_params
       flash[:success] = t "success_update"
       redirect_to @user
@@ -36,19 +37,19 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit :name, :email, :phone, :address, :password,
       :password_confirmation
   end
 
   def logged_in_user
-    unless logged_in?
-      flash[:danger] = t "please_login"
-      redirect_to login_path
-    end
+    return if logg_in?
+    flash[:danger] = t "please_login"
+    redirect_to login_path
   end
 
-  def load_User
+  def load_user
     @user = User.find_by id: params[:id]
     return if @user
     flash[:danger] = t "no-user"

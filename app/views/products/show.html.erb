@@ -1,0 +1,52 @@
+<% provide :title, @product.name %>
+<div class='row'>
+  <aside class='col-md-12 nopadding'>
+    <section class='user_info'>
+      <div class="col-md-3">
+         <%= image_tag @product.image, class: "img-responsive"%>
+      </div>
+      <div class="col-md-8">
+        <div>
+          <h1><%= @product.name %></h1>
+          <br>
+          Description: <%= @product.description %>
+          <br>
+          Quantity: <%= @product.quantity %>
+        </div>
+        <% if logged_in? %>
+          <%= form_for @cart do |f| %>
+            <%= f.hidden_field :cart_id, value: session[:cart],
+              class: "form-control" %>
+            <%= f.hidden_field :product_id, value: @product.id,
+              class: "form-control" %>
+            <div class="col-xs-3 nopadding">
+              <div class="input-group">
+                <span class="input-group-btn">
+                   <span id="down" class="btn btn-primary">-</span>
+                </span>
+                <%= f.text_field :quantity, value: 1, class: "form-control",
+                  id: "quantity", readonly: true %>
+                <span class="input-group-btn">
+                  <span id="up" class="btn btn-primary">+</span>
+                </span>
+              </div>
+            </div>
+            <%= f.hidden_field :price, value: @product.price,
+              class: "form-control", id: "price"%>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Price</span>
+                <%= f.text_field :total_price, value: @product.price,
+                  class: "form-control total_price", readonly: true %>
+                <span class="input-group-addon">$</span>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <%= f.submit t(".add_cart"), class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  </aside>
+</div>

@@ -1,3 +1,9 @@
+<% if logged_in? %>
+  <div id="cart_link">
+    <%= link_to "", cart_path(id: session[:cart]),
+      class: "glyphicon glyphicon-shopping-cart" %>
+  </div>
+<% end %>
 <footer>
   <div class="container">
     <div class="col-xs-6">
