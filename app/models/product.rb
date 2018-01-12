@@ -6,6 +6,5 @@ class Product < ApplicationRecord
   has_many :reviews
 
   scope :load_info, -> {select :image, :id, :price, :name}
-  scope :search, ->q{where "name LIKE '%#{q}%'"}
-  scope :order_by_name, ->{order name: :asc}
+
 end
