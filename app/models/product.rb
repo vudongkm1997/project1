@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   has_many :cart_items
   has_many :carts, through: :cart_items
   accepts_nested_attributes_for :cart_items
+  has_many :product_images
+  accepts_nested_attributes_for :product_images
   has_many :reviews
 
   scope :load_info, -> {select :image, :id, :price, :name}
@@ -24,5 +26,4 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: { only_float: true,
     greater_than: 0}
   validates :image, presence: true
-
 end

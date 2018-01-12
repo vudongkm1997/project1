@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by id: params[:id]
+    @product_images = @product.product_images.all
     @cart = Cart.new
     return if @product
     flash[:danger] = t "no_product"
@@ -16,6 +17,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new product_params
     if @product.save
+      params[:product_images]['image'].each do |a|
+        @product_image = @product.product_images.create!(:image => a,
+          :product_id => @product.id)
+      end
       flash[:success] = t "success_c"
       redirect_to products_url
     else
@@ -29,6 +34,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product_image = @product.product_images.build
   end
 
   def update
@@ -46,6 +52,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit :name, :description, :image, :quantity,
-    :price, :status, :category_id
+      :price, :status, :category_id, product_images_attributes: [:id,
+      :product_id, :image]
   end
 end
