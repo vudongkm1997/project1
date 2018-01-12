@@ -1,0 +1,15 @@
+<%= search_form_for @q, remote: true do |f| %>
+  <br>
+  <%= f.text_field :name_cont, placeholder: "Search name", class: "form-control" %>
+  <%= f.text_field :price_gteq, placeholder: "Search price from", class: "form-control" %>
+  <%= f.text_field :price_lteq, placeholder: "Search price to", class: "form-control" %>
+
+  <%= f.select :category_id_eq, Category.pluck(:name, :id),{include_blank: "All product",
+    selected: params[:q] ? params[:q][:category_id] : ''},
+    class: "btn btn-default" %>
+  <br><br>
+  <%= f.submit class: "btn btn-info" %>
+<% end %>
+<%= sort_link @q, :price, {}, {remote: true, method: :get} %> <br>
+<%= sort_link @q, :name, {}, {remote: true, method: :get} %> <br>
+<%= sort_link @q, :updated_at, "Newest", {}, {remote: true, method: :get} %>
