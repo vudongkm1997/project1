@@ -96,9 +96,26 @@ en:
       save: "Save changes"
 
   products:
+    index:
+      all-products: "All products"
     show:
       add_cart: "Add to cart"
-
+    edit:
+      update-product: "Update product"
+    new:
+      add-product: "Add product"
+    products:
+      sure: "You sure?"
+      name: "Name: "
+      quantity: "Quantity: "
+      price: "Price: "
+      product_price: "%{price} $"
+    product_form:
+      add: "Save product"
+      enter_your_name: "Enter your name"
+      enter_description: "Enter description"
+      enter_quantity: "Enter quantity"
+      enter_price: "Enter price"
   carts:
     show:
       cart: "Your cart"
@@ -123,4 +140,6 @@ en:
   please_login.: "Please log in"
   no-user: "User doesn't exist!"
   success_pay: "Thank you for buying"
-
+  success_c: "Success!"
+  noti: "should be less than 5MB"
+  success_update: "Updated success!"
