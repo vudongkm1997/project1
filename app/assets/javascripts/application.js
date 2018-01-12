@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require quantity
+//= require moment
+//= require daterangepicker
 //= require bootstrap
-//= require rails-ujs
 //= require_tree .
