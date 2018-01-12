@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/search", to: "searches#index"
   get "/chart", to: "charts#chart"
   get "/chart2", to: "admins#filter_date"
+  post "/save_cart", to: "carts#save_cart_session"
   resources :users
   resources :products
   resources :static_pages

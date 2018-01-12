@@ -1,7 +1,7 @@
 <% provide :title, @product.name %>
-<div class='row'>
-  <aside class='col-md-12 nopadding'>
-    <section class='user_info'>
+<div class="container">
+  <aside class="col-md-12 nopadding">
+    <section class="user_info">
       <div class="col-md-3">
          <%= image_tag @product.image, class: "img-responsive"%>
       </div>
@@ -11,32 +11,38 @@
           <br>
           Description: <%= @product.description %>
           <br>
-          Quantity: <%= @product.quantity %>
+          Quantity: <%= @product_info["quantity"] %>
         </div>
 
           <%= form_for @cart do |f| %>
             <%= f.hidden_field :cart_id, value: session[:cart],
               class: "form-control" %>
+        <% if current_user %>
+          <%= form_for @cart, url:save_cart_path do |f| %>
             <%= f.hidden_field :product_id, value: @product.id,
               class: "form-control" %>
+            <%= f.hidden_field :price, value: @product.price,
+              class: "form-control", id: "price"%>
+            <%= f.hidden_field :image, value: @product.image,
+              class: "form-control", id: "price"%>
+            <%= f.hidden_field :description, value: @product.description,
+              class: "form-control", id: "price"%>
             <div class="col-xs-3 nopadding">
               <div class="input-group">
                 <span class="input-group-btn">
                    <span id="down" class="btn btn-primary">-</span>
                 </span>
-                <%= f.text_field :quantity, value: 1, class: "form-control",
+                <%= f.text_field :quantity, value: 0, class: "form-control",
                   id: "quantity", readonly: true %>
                 <span class="input-group-btn">
                   <span id="up" class="btn btn-primary">+</span>
                 </span>
               </div>
             </div>
-            <%= f.hidden_field :price, value: @product.price,
-              class: "form-control", id: "price"%>
             <div class="col-md-4">
               <div class="input-group">
                 <span class="input-group-addon">Price</span>
-                <%= f.text_field :total_price, value: @product.price,
+                <%= f.text_field :total_price, value: 0,
                   class: "form-control total_price", readonly: true %>
                 <span class="input-group-addon">$</span>
               </div>

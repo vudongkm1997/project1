@@ -8,10 +8,14 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find_by id: params[:id]
     @product_images = @product.product_images.all
+    product_session @product
+    @product_info = session[:product][params[:id]]
+    puts @product_info
+    puts session[:cart]
     @cart = Cart.new
     return if @product
     flash[:danger] = t "no_product"
-    redicrect_to products_url
+    redirect_to products_url
   end
 
   def create

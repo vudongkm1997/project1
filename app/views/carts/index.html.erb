@@ -1,0 +1,6 @@
+<% session[:item].each do |thing| %>
+  <%= thing["total_price"] %>
+  <%= thing["quantity"] %>
+<% end %>
+
+<%= button_to "text", {action: "create"} %>
