@@ -30,6 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  admins:
+    index:
+      total_users: "Total users: "
+      total_products: "Total products:"
+      total_carts: "Total carts:"
+
   layouts:
     header:
       acc: "Account"
@@ -62,6 +68,11 @@ en:
       home: "Home"
       review: "Review"
       news: "NEWS"
+    filter:
+      newest: "Newest"
+      search_name: "Search name"
+      search_from: "Search price from"
+      search_to: "Search price to"
     product:
       product_price: "$ %{price}"
       add_cart: "Add to cart"

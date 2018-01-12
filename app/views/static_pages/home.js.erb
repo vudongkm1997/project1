@@ -1,0 +1,5 @@
+$('#filter').html('<%= j render "filter" %>')
+$('#product_list').html('<%= j render partial: "product",
+  collection: @products, as: :p %>')
+$('#paginator').html('<%= j paginate(@products, theme: "twitter-bootstrap-3",
+  remote: true).to_s %>')
