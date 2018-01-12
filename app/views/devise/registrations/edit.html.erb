@@ -1,7 +1,8 @@
-<h2><%= t("edit") %><%= resource_name.to_s.humanize %></h2>
+<h2><%= t(".edit") %><%= resource_name.to_s.humanize %></h2>
 
 <%= form_for resource, as: resource_name, url: registration_path(resource_name),
   html: { method: :put } do |f| %>
+
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -10,15 +11,15 @@
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t("currently") %><%= resource.unconfirmed_email %></div>
+    <div><%= t(".currently") %><%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i><%= t("leave") %></i><br />
+    <%= f.label :password %> <i><%= t(".leave") %></i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %><%= t("characters") %></em>
+      <em><%= @minimum_password_length %><%= t(".characters") %></em>
     <% end %>
   </div>
 
@@ -28,18 +29,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i><%= t("current_password") %></i><br />
+    <%= f.label :current_password %> <i><%= t(".current_password") %></i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit t("update") %>
+    <%= f.submit t(".update") %>
   </div>
 <% end %>
 
-<h3><%= t "cancel" %></h3>
+<h3><%= t ".cancel" %></h3>
 
-<p><%= button_to t("cancel"), registration_path(resource_name),
-  data: { confirm: t("sure") }, method: :delete %></p>
+<p><%= button_to t(".cancel"), registration_path(resource_name),
+  data: { confirm: t(".sure") }, method: :delete %></p>
 
-<%= link_to t("back"), :back %>
+<%= link_to t(".back"), :back %>

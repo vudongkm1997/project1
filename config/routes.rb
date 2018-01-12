@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post "/login", to: "login_sessions#create"
   delete "logout", to: "login_sessions#destroy"
   get "/search", to: "searches#index"
+  get "/chart", to: "charts#chart"
+  get "/chart_filter", to: "admins#filter_date"
   resources :users
   resources :products
   resources :static_pages

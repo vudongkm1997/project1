@@ -3,9 +3,8 @@
   <%= f.text_field :name_cont, placeholder: t(".search_name"), class: "form-control" %>
   <%= f.text_field :price_gteq, placeholder: t(".search_from"), class: "form-control" %>
   <%= f.text_field :price_lteq, placeholder: t(".search_to"), class: "form-control" %>
-
-  <%= f.select :category_id_eq, Category.pluck(:name, :id),{include_blank: "All product",
-    selected: params[:q] ? params[:q][:category_id] : ''},
+  <%= f.select :category_id_eq, Category.category,{include_blank: "All product",
+    selected: params[:q] ? params[:q][:category_id] : ""},
     class: "btn btn-default" %>
   <br><br>
   <%= f.submit class: "btn btn-info" %>
