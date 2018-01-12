@@ -1,6 +1,15 @@
 class AdminsController < ApplicationController
   before_action :ensure_admin!
+
   def index
+    @cartitems = CartItem.group(:created_at).sum :quantity
+    puts @cartitems
+  end
+
+  def filter_date
+    a = params[:daterange].split " - "
+    @cartitems = CartItem.load_chart a[0], a[1]
+    puts @cartitems
   end
 
   private

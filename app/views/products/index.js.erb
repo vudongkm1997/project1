@@ -1,3 +1,5 @@
 $('#filter').html('<%= j render "static_pages/filter" %>')
-$('#product_list').html('<%= j render partial: "static_pages/product", collection: @products, as: :p %>')
-$('#paginator').html('<%= j paginate(@products, theme: "twitter-bootstrap-3", remote: true).to_s %>')
+$('#product_list').html('<%= j render partial: "static_pages/product",
+  collection: @products, as: :p %>')
+$('#paginator').html('<%= j paginate(@products, theme: "twitter-bootstrap-3",
+  remote: true).to_s %>')

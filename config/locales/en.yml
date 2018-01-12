@@ -117,7 +117,6 @@ en:
   success: "Welcome to the My Shop!"
   success_login: "Login success!"
   success_signup: "Please log in with your new account"
-  create_acc: "Create my account"
   invalid: "Invalid email/password combination"
   mobile: "Mobile phone"
   success_update: "Updated profile success!"
