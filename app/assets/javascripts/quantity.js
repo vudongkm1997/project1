@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+  setTimeout(function() { $(".alert").fadeOut("slow"); }, 1500);
   $('#up').bind('mouseup',total_price_up);
   $('#down').bind('mouseup',total_price_down);
   quantity=$('#quantity').val()

@@ -12,11 +12,10 @@
           Description: <%= @product.description %>
           <br>
           Quantity: <%= @product_info["quantity"] %>
+          <br>
+          Visual Effects: <%= rating_for @product, "visual_effects",
+          enable_half: true, disable_after_rate: false %>
         </div>
-
-          <%= form_for @cart do |f| %>
-            <%= f.hidden_field :cart_id, value: session[:cart],
-              class: "form-control" %>
         <% if current_user %>
           <%= form_for @cart, url:save_cart_path do |f| %>
             <%= f.hidden_field :product_id, value: @product.id,
@@ -51,7 +50,7 @@
               <%= f.submit t(".add_cart"), class: "btn btn-primary" %>
             </div>
           <% end %>
-
+        <% end %>
       </div>
     </section>
   </aside>

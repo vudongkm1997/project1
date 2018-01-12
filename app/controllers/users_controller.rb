@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  ratyrate_rater
   def new
     @user = User.new
   end

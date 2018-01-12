@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  ratyrate_rateable 'visual_effects'
   belongs_to :category
   has_many :cart_items
   has_many :carts, through: :cart_items
@@ -8,9 +9,10 @@ class Product < ApplicationRecord
   has_many :reviews
 
   scope :load_info, -> {select :image, :id, :price, :name}
+  scope :order_by_name, ->{order name: :asc}
 
-  mount_uploader :image, ImageUploader
-  validate :image_size
+  # mount_uploader :image, ImageUploader
+  # validate :image_size
 
   def image_size
     if image.size > 5.megabytes
@@ -25,5 +27,5 @@ class Product < ApplicationRecord
    greater_than_or_equal_to: 0}
   validates :price, presence: true, numericality: { only_float: true,
     greater_than: 0}
-  validates :image, presence: true
+  # validates :image, presence: true
 end

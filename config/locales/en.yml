@@ -35,6 +35,11 @@ en:
       total_users: "Total users: "
       total_products: "Total products:"
       total_carts: "Total carts:"
+      all: "All"
+      products_manager: "Products Manager"
+      categories_manager: "Categories Manager"
+      users_manager: "Users Manager"
+      cart_manager: "Cart Manager"
 
   layouts:
     header:

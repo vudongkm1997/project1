@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
     @q = Product.load_info.ransack params[:q]
     @q.sorts = %w(name price updated_at) if @q.sorts.empty?
     @products = @q.result.page(params[:page]).per Settings.product_per_page
+    session.delete(:product)
   end
 
   def show
