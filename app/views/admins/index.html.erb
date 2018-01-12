@@ -31,4 +31,18 @@
       </div>
     </div>
   </div>
+  <div class="col-xs-3">
+    <br>
+    <%= form_tag chart2_path, method: :get, remote: true do %>
+    <%= text_field_tag :daterange, params["daterange"], class: "form-control" %>
+    <%= submit_tag "Search",class: "btn btn-primary"%>
+  <% end %>
+  </div>
+  <div class="col-xs-12">
+    <div id="chart">
+      <%= render "total_product" %>
+    </div>
+  </div>
 </div>
+
+

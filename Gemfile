@@ -11,6 +11,7 @@ gem "bootstrap-kaminari-views"
 gem "carrierwave", "1.1.0"
 gem "coffee-rails", "~> 4.2"
 gem "config"
+gem "chartkick"
 gem "devise"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
@@ -43,6 +44,7 @@ group :development do
 end
 
 group :production do
+
   gem "pg", "0.20.0"
 end
 
