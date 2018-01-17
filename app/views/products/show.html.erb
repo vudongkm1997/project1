@@ -13,7 +13,7 @@
           <br>
           Quantity: <%= @product.quantity %>
         </div>
-        <% if logged_in? %>
+
           <%= form_for @cart do |f| %>
             <%= f.hidden_field :cart_id, value: session[:cart],
               class: "form-control" %>
@@ -45,7 +45,7 @@
               <%= f.submit t(".add_cart"), class: "btn btn-primary" %>
             </div>
           <% end %>
-        <% end %>
+
       </div>
     </section>
   </aside>

@@ -12,4 +12,40 @@ class ProductsController < ApplicationController
     flash[:danger] = t "no_product"
     redicrect_to products_url
   end
+
+  def create
+    @product = Product.new product_params
+    if @product.save
+      flash[:success] = t "success_c"
+      redirect_to products_url
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @product = Product.find_by id: params[:id]
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def update
+    @product = Product.find_by id: params[:id]
+
+    if @product.update_attributes product_params
+      flash[:success] = t "success_update"
+      redirect_to products_url
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit :name, :description, :image, :quantity,
+    :price, :status, :category_id
+  end
 end
