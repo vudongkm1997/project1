@@ -2,15 +2,21 @@
 <main>
   <div class="container">
     <%= render "static_pages/demo" %>
-    <div class="col-xs-12 nopadding" id="product_list_item">
+    <div class="col-xs-3" id="filter">
+      <%= render "filter" %>
+    </div>
+    <div class="col-xs-9 nopadding" id="product_list_item">
       <div class="title">
         <h3><%= t ".mobile" %></h3>
       </div>
       <div id="product" class="col-xs-12 nopadding">
+
         <div id="product_list" class="col-xs-12 nopadding">
-          <%= render partial: "product", collection: @products, as: :p %>
+          <%= render partial: "static_pages/product", collection: @products, as: :p %>
         </div>
-        <%= paginate @products, theme: "twitter-bootstrap-3" %>
+        <div id="paginator">
+          <%= paginate @products, theme: "twitter-bootstrap-3", remote: true %>
+        </div>
       </div>
     </div>
   </div>
