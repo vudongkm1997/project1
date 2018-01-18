@@ -3,30 +3,45 @@
     <%= form_for @product do |f| %>
     <%= render "shared/error_messages", object: f.object %>
 
-      <div class="col-xs-6">
+      <div class="col-xs-12">
         <%= f.label :name %>
-        <%= f.text_field :name, placeholder: t(".enter_your_name"), class: "form-control" %>
+        <%= f.text_field :name, placeholder: t(".enter_your_name"),
+          class: "form-control" %>
       </div>
       <div class="col-xs-6">
         <%= f.label :image %>
         <%= f.file_field :image, class: "form-control",
           accept: "image/jpeg,image/gif,image/png" %>
       </div>
+      <div class="col-xs-6">
+        <%= f.fields_for :product_images do |p| %>
+        <div class="field">
+          <%= p.label :"Other images" %><br>
+          <%= p.file_field :image, class: "form-control",
+            accept: "image/jpeg,image/gif,image/png" ,:multiple => true,
+            name: "product_images[image][]" %>
+        </div>
+      <% end %>
+      </div>
       <div class="col-xs-12">
         <%= f.label :description %>
-        <%= f.text_area :description, placeholder: t(".enter_description"),class: "form-control" %>
+        <%= f.text_area :description, placeholder: t(".enter_description"),
+          class: "form-control" %>
       </div>
        <div class="col-xs-4">
         <%= f.label :category_id %>
-        <%= f.select :category_id, Category.pluck(:name, :id),{}, class: "form-control" %>
+        <%= f.select :category_id, Category.pluck(:name, :id),{},
+          class: "form-control" %>
       </div>
       <div class="col-xs-4">
         <%= f.label :quantity %>
-        <%= f.text_field :quantity, placeholder: t(".enter_quantity"), class: "form-control" %>
+        <%= f.text_field :quantity, placeholder: t(".enter_quantity"),
+          class: "form-control" %>
       </div>
       <div class="col-xs-4">
         <%= f.label :price %>
-        <%= f.text_field :price, placeholder: t(".enter_price"), class: "form-control" %>
+        <%= f.text_field :price, placeholder: t(".enter_price"),
+          class: "form-control" %>
       </div>
       <div class="col-xs-push-4 col-xs-4">
         <%= f.submit t(".add"), class: "btn btn-primary" %>
