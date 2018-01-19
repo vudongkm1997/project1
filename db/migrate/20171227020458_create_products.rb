@@ -8,6 +8,12 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.integer :quantity
       t.float :price
       t.boolean :status
+      t.string :camera
+      t.string :memory
+      t.string :os
+      t.string :cpu
+      t.string :ram
+      t.string :screen
 
       t.timestamps
     end

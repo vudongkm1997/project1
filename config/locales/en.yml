@@ -32,9 +32,28 @@
 en:
   admins:
     index:
-      total_users: "Total users: "
-      total_products: "Total products:"
-      total_carts: "Total carts:"
+      total_users: "Total users: %{total}"
+      total_products: "Total products: %{total}"
+      total_carts: "Total carts: %{total}"
+    product_manager:
+      filter_product: "Filter product"
+      all-products: "Products managerment"
+      new: "New product"
+    product_filter:
+      all_category: "All categoties"
+      from: "From"
+      to: "To"
+      search: "Search by name or description"
+    product_all:
+      screen: "Screen: %{screen}"
+      camera: "Camera: %{camera}"
+      os: "OS: %{os}"
+      cpu: "CPU: %{cpu}"
+      ram: "Ram: %{ram}"
+      memory: "Memory: %{memory}"
+      product_price: "$ %{price}"
+      sure: "You sure?"
+
 
   layouts:
     header:

@@ -8,4 +8,15 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone, :address])
   end
+
+  private
+
+  # Overwriting the sign_out redirect path method
+  def after_sign_in_path_for resource
+    if current_user.admin?
+      admins_url
+    else
+      root_path
+    end
+  end
 end

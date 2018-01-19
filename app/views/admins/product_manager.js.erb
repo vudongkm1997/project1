@@ -1,0 +1,3 @@
+$('#products_admin').html('<%= j (render "admins/product_sort") %>')
+$('#product_list_admin').html('<%= j (render partial: "admins/product_all",collection: @products, as: :p) %>')
+$('#paginator').html('<%= j(paginate(@products, theme: "twitter-bootstrap-3",remote: true).to_s) %>')

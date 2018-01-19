@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "/search", to: "searches#index"
   get "/chart", to: "charts#chart"
   get "/chart2", to: "admins#filter_date"
+  get "/product_manager", to: "admins#product_manager"
+  get "/cart_manager", to: "admins#cart_manager"
+  get "/user_manager", to: "admins#user_manager"
   resources :users
   resources :products
   resources :static_pages

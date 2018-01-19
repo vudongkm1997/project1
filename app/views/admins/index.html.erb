@@ -1,48 +1,108 @@
-<div id="admin">
-  <div class="col-xs-12 ">
-    <div class="col-xs-4">
-      <div class="col-xs-12 bg-danger">
-        <div class="icon">
-          <span class="glyphicon glyphicon-user"></span>
-        </div>
+<%= render "admins/admin_menu" %>
+<div id="admin" class="col-xs-10 center-info">
+  <div class="col-xs-12 nopadding ">
+    <div class="col-xs-4 total">
+      <div class="col-xs-12 bg-gradient-blue">
         <div>
-          <h3><%= t "total_users: " %></h3>
+          <h2>
+            <span class="glyphicon glyphicon-user pull-left"></span>
+            <%= t ".total_users", total: @total_user %>
+          </h2>
         </div>
       </div>
     </div>
-    <div class="col-xs-4">
-      <div class="col-xs-12 bg-primary">
-        <div class="icon">
-          <span class="glyphicon glyphicon-list-alt"></span>
-        </div>
+    <div class="col-xs-4 total">
+      <div class="col-xs-12 bg-gradient-purple">
         <div>
-          <%= t "total_products:" %>
+          <h2>
+            <span class="glyphicon glyphicon-list-alt pull-left"></span>
+            <%= t ".total_products", total: @total_product %>
+          </h2>
         </div>
       </div>
     </div>
-    <div class="col-xs-4">
-      <div class="col-xs-12 bg-success">
-        <div class="icon">
-          <span class="glyphicon glyphicon-shopping-cart"></span>
-        </div>
+    <div class="col-xs-4 total">
+      <div class="col-xs-12 bg-gradient-orange">
         <div>
-          <%= t "total_carts:" %>
+          <h2>
+            <span class="glyphicon glyphicon-shopping-cart pull-left"></span>
+            <%= t ".total_carts", total: @total_cart %>
+          </h2>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-xs-3">
-    <br>
+  <div class="col-xs-12 nopadding">
+    <hr>
+  </div>
+  <div class="col-xs-12 nopadding">
     <%= form_tag chart2_path, method: :get, remote: true do %>
-    <%= text_field_tag :daterange, params["daterange"], class: "form-control" %>
-    <%= submit_tag "Search",class: "btn btn-primary"%>
-  <% end %>
+      <div class="col-xs-6">
+        <div class="col-xs-6">
+          <%= text_field_tag :daterange, params["daterange"], class: "form-control"%>
+        </div>
+        <div class="col-xs-3 nopadding">
+          <%= submit_tag "Filter",class: "btn btn-primary"%>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="col-xs-12">
     <div id="chart">
       <%= render "total_product" %>
     </div>
   </div>
+  <div class="col-xs-12">
+    <div class="col-xs-4">
+      <div class="col-xs-12 nopadding top-list">
+        <div class="col-xs-12 nopadding title_total">
+          <h4><b>TOP USERS MOST ORDER:</b></h4>
+        </div>
+        <div class="col-xs-12 nopadding">
+          <table class="table table-striped table-hover nomargin">
+            <% @topusers.each do |x| %>
+              <tr>
+                <td><%= x[0] %></td>
+                <td><%= x[1] %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="col-xs-12 nopadding top-list">
+        <div class="col-xs-12 nopadding title_total">
+          <h4><b>TOP SELL:</b></h4>
+        </div>
+        <div class="col-xs-12 nopadding">
+          <table class="table table-striped table-hover nomargin">
+            <% @topsell.each do |x| %>
+              <tr>
+                <td><%= x[0] %></td>
+                <td><%= x[1] %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="col-xs-12 nopadding top-list">
+        <div class="col-xs-12 nopadding title_total">
+          <h4><b>TOP PRODUCT MOST REVIEWS:</b></h4>
+        </div>
+        <div class="col-xs-12 nopadding">
+          <table class="table table-striped table-hover nomargin">
+            <% @topproducts.each do |x| %>
+              <tr>
+                <td><%= x[0] %></td>
+                <td><%= x[1] %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-

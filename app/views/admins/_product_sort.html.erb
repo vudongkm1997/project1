@@ -1,0 +1,17 @@
+<tr>
+  <th class="col-xs-1">Image</th>
+  <th>
+    <%= sort_link @q, :name, {}, {remote: true, method: :get} %>
+  </th>
+  <th>
+    Info
+  </th>
+  <th>
+    <%= sort_link @q, :quantity, {}, {remote: true, method: :get} %>
+  </th>
+  <th>
+    <%= sort_link @q, :price, {}, {remote: true, method: :get} %>
+  </th>
+  <th></th>
+  <th></th>
+</tr>

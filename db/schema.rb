@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 20180118012648) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "image_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "product_id"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "product_id"
     t.string "image"
@@ -57,6 +50,12 @@ ActiveRecord::Schema.define(version: 20180118012648) do
     t.integer "quantity"
     t.float "price", limit: 24
     t.boolean "status"
+    t.string "camera"
+    t.string "memory"
+    t.string "os"
+    t.string "cpu"
+    t.string "ram"
+    t.string "screen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

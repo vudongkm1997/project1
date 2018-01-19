@@ -1,0 +1,24 @@
+<%= search_form_for @q, remote: true do |f| %>
+  <div class="col-xs-12 nopadding">
+    <div class="col-xs-4">
+      <%= f.text_field :name_or_description_cont, placeholder: t(".search"),
+        class: "form-control" %>
+    </div>
+    <div class="col-xs-4">
+      <div class="input-group">
+        <%= f.text_field :price_gteq, placeholder: t(".from"), class: "form-control" %>
+        <span class="input-group-addon"><%= t ".to" %></span>
+        <%= f.text_field :price_lteq, placeholder: t(".to"), class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <%= f.select :category_id_eq, Category.pluck(:name, :id),
+        {include_blank: t(".all_category"),
+        selected: params[:q] ? params[:q][:category_id] : ""},
+        class: "btn btn-default" %>
+    </div>
+  </div>
+  <div class="col-xs-4 pull-right">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

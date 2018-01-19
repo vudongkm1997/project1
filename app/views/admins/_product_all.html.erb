@@ -1,0 +1,39 @@
+<tr>
+  <td class="col-xs-1"><%= image_tag p.image, class: "img-responsive" %></td>
+  <td>
+    <h3><%= p.name %></h3>
+  </td>
+  <td class="col-xs-6">
+    <div class="col-xs-6">
+      <%= t ".screen", screen: p.screen %>
+    </div>
+    <div class="col-xs-6">
+      <%= t ".camera", camera: p.camera %>
+    </div>
+    <div class="col-xs-6">
+      Ram: <%= t ".ram", ram: p.ram %>
+    </div>
+    <div class="col-xs-6">
+      OS: <%= t "os", os: p.os %>
+    </div>
+    <div class="col-xs-6">
+      Memory: <%= t ".memory", memory: p.memory %>
+    </div>
+    <div class="col-xs-6">
+      CPU: <%= t ".cpu", cpu: p.cpu %>
+    </div>
+  </td>
+  <td><h4><%= p.quantity %></h4></td>
+  <td><h4><%= t ".product_price", price: p.price %></h4></td>
+  <td>
+    <%= link_to edit_product_path(id: p.id), class: "btn btn-success" do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to p, method: :delete, data: {confirm: t(".sure")},
+      class: "btn btn-danger" do %>
+      <span class="glyphicon glyphicon-remove"></span>
+    <% end %>
+  </td>
+</tr>

@@ -7,7 +7,8 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
   has_many :reviews
 
-  scope :load_info, -> {select :image, :id, :price, :name}
+  scope :load_info, -> {select :image, :id, :price, :name, :screen, :camera,
+    :os, :ram, :cpu, :memory, :quantity, :category_id}
 
   mount_uploader :image, ImageUploader
   validate :image_size
